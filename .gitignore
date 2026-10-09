@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local browser captures and downloaded reference archives
+/.playwright-mcp/
+/UI Inspiration/*.zip
+/public/ID visual/cafeteria-3-amigos.zip

@@ -1,0 +1,20 @@
+:root {
+  --cream: #f4ead5;
+  --paper: #e6cfa3;
+  --espresso: #3e2418;
+  --roast: #7b4a36;
+  --caramel: #e8a93b;
+  --caramel-text: #7b4a36;
+  --caramel-light: #f2b27a;
+  --accent: #c65a3e;
+  --foam: #ffffff;
+  --ink-soft: #624333;
+  --cacto: #5e7a45;
+  --sun: #e8a93b;
+  --sand: #e6cfa3;
+  --sunset: #f2b27a;
+  --touch-target: 2.75rem;
+  --font-display: 'Rye';
+  --font-sans: 'Montserrat';
+  --font-mono: 'Fragment Mono';
+}
