@@ -1,16 +1,46 @@
-# React + Vite
+# [NOME_DA_CAFETERIA]
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Site de cafeteria criado com React 18, TypeScript e Vite. O projeto está sendo desenvolvido por etapas conforme o roteiro em `docs/PLANO.md`.
 
-Currently, two official plugins are available:
+## Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 18 ou superior
+- npm
 
-## React Compiler
+## Começar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the Oxlint configuration
+O Vite mostra no terminal o endereço local para abrir no navegador.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Validar
+
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```
+
+O comando `npm run typecheck` também executa a verificação de tipos. As rotas iniciais ficam em `src/routes.tsx`; textos das páginas ficam em `src/data/pages.ts`; identidade editável fica em `src/config/site.ts`.
+
+## Etapas
+
+O projeto implementa a fundação, as seções da home, as rotas internas e as interações demonstrativas descritas nas fases 0–6 de `docs/PLANO.md`.
+
+## Rodar localmente
+
+```bash
+npm install
+npm run dev
+```
+
+Para conferir a versão otimizada, rode `npm run lint`, `npx tsc --noEmit`, `npm run build` e depois `npm run preview`.
+
+## Conteúdo demonstrativo
+
+O nome `[NOME_DA_CAFETERIA]`, endereços, horários, história, preços e condições de compra precisam ser confirmados pelo grupo. A compra, o clube e o pedido antecipado não enviam nem cobram pedidos. Placeholders e itens para substituir estão em `docs/ASSETS.md`; escolhas pendentes estão em `docs/DECISOES.md`.
+
+Os textos editáveis ficam em `src/data/`, tokens e fontes em `src/styles/`, e identidade, paleta e contato em `src/config/site.ts`.

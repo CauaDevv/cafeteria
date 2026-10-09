@@ -1,0 +1,27 @@
+# Decisões do projeto
+
+- **Nome e identidade:** manter `[NOME_DA_CAFETERIA]` em `src/config/site.ts` até o grupo escolher um nome. A tipografia e os tokens seguem os pontos de partida definidos no plano.
+- **Conteúdo demonstrativo:** textos da marca, cardápio, torras e avaliações foram redigidos para esta interface. Confirmar receitas, preços e depoimentos antes de publicar.
+- **História e localização:** a timeline é fictícia para fins de protótipo; a unidade está como Recife/PE com endereço e horário a confirmar. Substituir os marcos pelo histórico real e conferir SEO local antes de publicar.
+- **Pedido e clube:** carrinho, pedido antecipado e assinatura são demonstrações sem cobrança, backend ou envio de pedidos.
+- **Movimento:** Lenis é desativado com `prefers-reduced-motion`; em telas pequenas, a timeline permanece como carrossel horizontal com snap e o campo de grãos não inicializa Matter.js.
+- **SEO local provisório:** JSON-LD e sitemap usam Recife/PE e `example.com` enquanto endereço e domínio não forem definidos. Atualizar ambos antes de publicar.
+- **Dependência extra:** `@types/matter-js` foi adicionada como dependência de desenvolvimento para manter Matter.js tipado em TypeScript; Matter.js está listado no §4.
+- **Identidade provisória:** preservar o placeholder exigido no config, com símbolo independente para que o cabeçalho continue alinhado antes da escolha do nome.
+- **SEO social:** URLs usam `example.com` porque ainda não há domínio; substituir em `robots.txt`, `sitemap.xml` e inserir imagem OG própria antes da publicação.
+- **Auditoria Playwright:** em build de produção, zero erros e zero avisos no console; menu/Escape com retorno de foco, formulário de filtro, rotas, detalhe de torra, popup, movimento reduzido, carrinho persistente e checkout simulado foram conferidos. Sem validação manual por leitor de tela ou execução em Safari/Firefox/Edge.
+- **Ambiente Git:** `git` não está instalado nem disponível no PATH deste ambiente. As validações foram executadas, mas os commits Conventional Commits solicitados não puderam ser criados.
+- **Auditoria de dependências:** `npm audit --omit=dev` aponta dois advisories moderados em `react-router` 6; o comando recomenda `npm audit fix --force`, que migraria para React Router 7. Não apliquei atualização breaking fora do plano. Revisar a versão compatível em uma tarefa própria.
+- **Auditoria Playwright complementar (2026-10-06):** as nove rotas foram conferidas em 360 e 1920 px; home e cardápio também em 390, 768, 1024, 1280 e 1536 px. Nenhum overflow e exatamente um `h1` por rota. O navegador MCP reporta `visualViewport` 15 px menor que o viewport configurado por causa da barra vertical; a comparação de overflow usa a largura configurada.
+- **Correção de inventário:** a linha do mapa em `docs/ASSETS.md` apontava para `sections/RoutePage.tsx`, mas o componente fica em `src/pages/RoutePage.tsx`; o caminho foi corrigido.
+- **Lighthouse de desenvolvimento (2026-10-06):** o primeiro diagnóstico em Vite dev marcou Performance 54 e LCP 22,7 s; não foi usado para aceitar a meta porque incluía cliente/HMR. O resultado está preservado em `docs/audits/lighthouse-mobile.json` para comparação.
+- **Lighthouse final de produção (2026-10-06):** Lighthouse 13.5, execução mobile em `vite preview`, simulação de throttling. Home: Performance 95, Accessibility 100, Best Practices 100, SEO 100; LCP 2,4 s, CLS 0,002 e TBT 50 ms. Cardápio, listagem e detalhe das torras, contato e clube marcaram Accessibility 100 e SEO 100. Relatórios integrais em `docs/audits/`.
+- **Ajustes orientados pela auditoria:** adicionei tokens de texto com contraste acessível, removi a opacidade que enfraquecia o texto dos passos, corrigi rótulos ARIA dos depoimentos e corrigi overflow dos filtros do cardápio em celulares. No mobile, o atalho para reabrir o popup vira botão de ícone com nome acessível.
+- **Movimento reduzido:** no Playwright, depois de a preferência ser aplicada, não há canvas Matter, classe Lenis nem `pin-spacer` do ScrollTrigger.
+- **Altura das seções:** espaçamentos e cards da home foram compactados para aproveitar melhor a altura da tela. Não fixar nem cortar seções em `100svh`: em telas baixas ou com zoom/texto ampliado, o conteúdo continua naturalmente para preservar leitura e acessibilidade.
+- **Evidências da auditoria:** resultados JSON, instruções de reprodução e capturas desktop/mobile estão organizados em `docs/audits/`.
+- **Edge:** o Lighthouse 13.5 usando `msedge.exe` marcou Accessibility 100 e SEO 100 na home. Fluxos interativos em Edge, Firefox, Safari/iOS e revisão manual com leitor de tela continuam pendentes.
+
+- **Playwright MCP (2026-10-06, revis�o complementar):** na build local de produ��o em 390 e 1920 px n�o houve overflow (diferen�a de 15 px entre innerWidth e documentElement.scrollWidth corresponde � barra vertical do Chromium); a home apresentou um h1. O menu acess�vel abriu como di�logo, fechou com Escape e devolveu foco ao bot�o acionador. Console sem erros ou avisos. Esta checagem n�o substitui testes em Safari/Firefox nem revis�o por leitor de tela.
+
+- **Playwright MCP no build de produ��o (2026-10-06, fluxos):** em viewport desktop, o carrossel avan�ou com bot�o e publicou posi��o/conte�do em regi�es ria-live=polite; adicionar a torra atualizou o contador e abriu a sacola; finalizar exibiu Pedido anotado e o aviso de demonstra��o sem cobran�a. Complementa o registro de menu/teclado e console acima; n�o equivale a testes interativos no execut�vel Edge.

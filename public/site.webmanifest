@@ -1,0 +1,10 @@
+{
+  "name": "3 Amigos — O Sabor do Nordeste",
+  "short_name": "3 Amigos",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4EAD5",
+  "theme_color": "#3E2418",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
